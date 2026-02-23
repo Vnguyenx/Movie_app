@@ -24,7 +24,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.moiveapp"
+        applicationId = "com.example.movieapp"
         
         // Đã sửa: Nâng minSdk lên 23 để tương thích với Firebase Auth mới
         minSdk = 23 
