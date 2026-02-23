@@ -18,18 +18,19 @@ jobs:
           flutter-version: "3.24.0"
 
       - name: Install dependencies
-        # Thêm working-directory để chạy lệnh bên trong thư mục user
-        run: flutter pub get
-        working-directory: user
+        # Nếu thư mục user tồn tại thì vào, không thì chạy tại chỗ
+        run: |
+          if [ -d "user" ]; then cd user; fi
+          flutter pub get
 
       - name: Build APK
-        # Thêm working-directory để chạy lệnh bên trong thư mục user
-        run: flutter build apk --release --no-tree-shake-icons
-        working-directory: user
+        run: |
+          if [ -d "user" ]; then cd user; fi
+          flutter build apk --release --no-tree-shake-icons
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: MovieApp-User-APK
-          # Cập nhật đường dẫn tìm file APK chính xác
-          path: user/build/app/outputs/flutter-apk/app-release.apk
+          # Sử dụng ký tự đại diện để GitHub tự tìm file APK ở bất cứ đâu nó xuất hiện
+          path: "**/build/app/outputs/flutter-apk/app-release.apk"
