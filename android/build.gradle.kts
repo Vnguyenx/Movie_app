@@ -15,12 +15,6 @@ allprojects {
     }
 }
 
-rootProject.layout.buildDirectory.set(rootProject.layout.projectDirectory.dir("../../build"))
-
-subprojects {
-    project.layout.buildDirectory.set(rootProject.layout.buildDirectory.get().dir(project.name))
-}
-
 subprojects {
     project.evaluationDependsOn(":app")
 }
