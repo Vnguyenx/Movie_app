@@ -6,10 +6,9 @@ plugins {
 }
 
 android {
-    // PHẢI CHÍNH XÁC LÀ movieapp (o trước i) như trong ảnh Firebase của bạn
-    namespace = "com.example.movieapp" 
+    namespace = "com.example.movieapp"
     compileSdk = flutter.compileSdkVersion
-    
+
     ndkVersion = "27.0.12077973"
 
     compileOptions {
@@ -22,10 +21,8 @@ android {
     }
 
     defaultConfig {
-        // PHẢI KHỚP VỚI Firebase: com.example.movieapp
         applicationId = "com.example.movieapp"
-        
-        minSdk = 23 
+        minSdk = 23
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName

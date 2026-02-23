@@ -16,21 +16,16 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.24.0"
+          channel: "stable"
 
       - name: Install dependencies
-        # Nếu thư mục user tồn tại thì vào, không thì chạy tại chỗ
-        run: |
-          if [ -d "user" ]; then cd user; fi
-          flutter pub get
+        run: flutter pub get
 
       - name: Build APK
-        run: |
-          if [ -d "user" ]; then cd user; fi
-          flutter build apk --release --no-tree-shake-icons
+        run: flutter build apk --release --no-tree-shake-icons
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: MovieApp-User-APK
-          # Sử dụng ký tự đại diện để GitHub tự tìm file APK ở bất cứ đâu nó xuất hiện
-          path: "**/build/app/outputs/flutter-apk/app-release.apk"
+          name: MovieApp-APK
+          path: "build/app/outputs/flutter-apk/app-release.apk"
