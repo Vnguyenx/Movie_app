@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "485055435777",
+    "project_id": "trailer-movie-app-f01ab",
+    "storage_bucket": "trailer-movie-app-f01ab.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485055435777:android:4ad459f6dc5a96ce159c00",
+        "android_client_info": {
+          "package_name": "com.example.movieapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVgL10ChSm06hs99O89CVP8zy_cH80oIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

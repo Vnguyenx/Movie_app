@@ -3,12 +3,16 @@ plugins {
     id("kotlin-android")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
+    // Thêm dòng này để Firebase hoạt động (nếu bạn dùng Firebase)
+    id("com.google.gms.google-services")
 }
 
 android {
-    namespace = "com.example.moiveapp"
+    namespace = "com.example.movieapp"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    
+    // Đã sửa: Ép sử dụng NDK bản 27 như lỗi yêu cầu
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -20,11 +24,11 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.example.moiveapp"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        
+        // Đã sửa: Nâng minSdk lên 23 để tương thích với Firebase Auth mới
+        minSdk = 23 
+        
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
@@ -33,8 +37,11 @@ android {
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.getByName("debug")
+            
+            // Tối ưu hóa build
+            isMinifyEnabled = false
+            isShrinkResources = false
         }
     }
 }
