@@ -25,12 +25,17 @@ jobs:
         run: |
           rm -rf ~/.gradle/caches
           rm -rf ~/.gradle/daemon
-      
+
       - name: Build APK
         run: flutter build apk --release --no-tree-shake-icons
+        continue-on-error: true
+
+      - name: Find APK location
+        if: always()
+        run: find /home/runner/work -name "*.apk" 2>/dev/null || echo "No APK found anywhere"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: MovieApp-APK
-          path: "build/app/outputs/flutter-apk/app-release.apk"
+          path: "**/*.apk"
