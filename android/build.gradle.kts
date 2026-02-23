@@ -1,10 +1,9 @@
 // 1. Khai báo các Plugin ở đầu file
 plugins {
-    // Sửa 8.1.0 thành 8.7.0 theo đúng thông báo lỗi
     id("com.android.application") version "8.7.0" apply false
     
-    // Nâng cấp bản Kotlin lên để tương thích với Gradle mới (thường là 1.9.22 hoặc 2.0.0)
-    id("org.jetbrains.kotlin.android") version "1.9.22" apply false
+    // Sửa 1.9.22 thành 1.8.22 theo đúng yêu cầu của thông báo lỗi
+    id("org.jetbrains.kotlin.android") version "1.8.22" apply false
     
     id("dev.flutter.flutter-gradle-plugin") version "1.0.0" apply false
     id("com.google.gms.google-services") version "4.4.2" apply false
